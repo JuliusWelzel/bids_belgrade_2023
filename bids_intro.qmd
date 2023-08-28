@@ -115,7 +115,7 @@ format:
 [BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
 :::
 
-## Common principles
+## Common principles{auto-animate=true}
 
 ::: columns
 ::: {.column width="40%"}
@@ -127,7 +127,12 @@ Level of requirement **for** files and **within** files:
 :::
 
 ::: {.column width="55%"}
-![](pics/bids_dataset.png)
+::: {.fragment .fade-in}
+![](pics/bids_dataset_req.png)
+:::
+::: {.fragment .fade-in}
+![](pics/bids_dataset_rec.png)
+:::
 :::
 :::
 
