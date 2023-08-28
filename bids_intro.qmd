@@ -1,0 +1,337 @@
+---
+title: "MOTION-BIDS"
+title-slide-attributes:
+  data-background-image: pics/128_cap.jpg
+  data-background-size: cover
+  data-background-opacity: "0.5"
+subtitle: "Extending the Brain Imaging Data Structure specification to organize motion data for reproducible research"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: logo/BIDS_logo.png
+    css: styles.css
+    margin: 0.1
+    smaller: true
+---
+
+## Motivation
+
+-   Tens of thousands subjects are scanned for research purposes each year
+-   Lack of consensus leads to misunderstanding and time wasted on **rearranging data** or **rewriting scripts** that expect particular file formats and organization
+
+::: {.fragment .fade-up}
+-   Create a **standard** for organizing motion data building on BIDS
+:::
+
+::: footer
+[Gorgolewski, *Scientific Data*, 2016](https://www.nature.com/articles/sdata201644)
+:::
+
+
+## What is BIDS?
+
+> BIDS is based on **simple file** formats and folder structures
+
+**DATA STRUCTURE**
+
+-   File formats to use (e.g. nifti, json, tsv) → [BIDS is NOT a file format]
+-   Naming convention for files and directories
+
+**METADATA**
+
+-   Prevents metadata getting lost while doing your research
+-   Stored in json files, readable by both humans and machines
+-   Some metadata is better than no metadata
+
+
+## Where do we want to go 
+
+\
+
+::: columns
+::: {.column width="50%"}
+![](pics/mobi.jpg)
+:::
+
+::: {.column width="50%"}
+![](pics/fries_normal.jpg)
+::: 
+:::
+
+::: footer
+[BIDS specifications](https://bids-specification.readthedocs.io/en/stable/)
+:::
+
+## Where do we want to go {auto-animate="true"}
+
+**EXAMPLE**
+
+
+
+::: columns
+::: {.column width="50%"}
+```markdown
+├─ README.md
+├─ dataset_description.json
+├─ participants.json
+├─ participants.tsv
+├─ sub-001
+| ├─ses-01
+| |  ├─eeg/
+| |  └─motion/
+| ├─ ses-02
+| └─ sub-001_scans.tsv
+|
+├─ sub-002
+└─ sub-003
+```
+:::
+
+::: {.column width="50%"}
+![](pics/fries_clean.jpg)
+::: 
+:::
+
+::: footer
+[BIDS specifications](https://bids-specification.readthedocs.io/en/stable/)
+:::
+
+## Definitions
+
+-   **Dataset** - A dataset consists of data acquired from one or more subjects, possibly from multiple sessions.
+-   **Subject** - a single participant in a study. A subject can be scanned multiple times, in which case each scan is a separate session.
+-   **Session** - a logical grouping of neuroimaging and behavioral data consistent across subjects. Session can (but doesn't have to) be synonymous to a visit in a longitudinal study. 
+-   **Task** - a set of structured activities performed by the participant. Tasks are usually accompanied by stimuli and responses, and can greatly vary in complexity. 
+-   **Data type** - a functional group of different types of data. Some BIDS defined data types are: 
+    -   anat (structural imaging such as T1, T2 and so on)
+    -   eeg (electroencephalography)
+    -   motion (time series of object positions, orientations, or their time derivatives)
+
+
+::: footer
+[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
+:::
+
+## Common principles
+
+::: columns
+::: {.column width="40%"}
+Level of requirement **for** files and **within** files:
+
+-   **REQUIRED**
+-   **RECOMMENDED**
+-   **OPTIONAL**
+:::
+
+::: {.column width="55%"}
+![](pics/bids_dataset.png)
+:::
+:::
+
+
+
+::: footer
+[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
+:::
+
+## Example: dataset description
+
+**Example dir structure**
+```markdown
+├─ README.tsv
+├─ dataset_description.json
+├─ participants.json
+├─ participants.tsv
+├─ sub-001
+| ├─ ses-01
+| └─ ses-02
+|
+├─ sub-002
+└─ sub-003
+```
+**dataset_description.json**
+```json
+{
+"Name": "The mother of all experiments",  
+"BIDSVersion": "1.4.0",
+"DatasetType": "raw",  
+"License": "CC0",
+"Authors": [ "Paul Broca", "Carl Wernicke" ],  
+"Funding": [ "National Institute of Neuroscience Grant F37823MFH1" ], 
+"EthicsApprovals": ["Human Research Protections Office (Protocol  AR0928" ],
+"DatasetDOI": "10.0.2.3/dfjj.10"
+}
+
+```
+
+
+::: footer
+[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
+:::
+
+## Example: paricipant files
+
+**participants.json***
+```json
+{
+"age": {
+"Description": "age of the participant",  "Units": "years"   },
+"sex": {
+"Description": "sex as reported by the participant",  "Levels": {
+"M": "male",
+"F": "female"  },
+},
+}
+```
+
+**participants.tsv**
+```markdown
+participant_id 	age sex
+sub-001       34	  M
+sub-002       12	  F
+sub-003       33	  F
+```
+
+::: footer
+[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
+:::
+
+## 
+<h2 class="r-fit-text">MOTION SPECIFIC DATA</h2>
+![](pics/dance.gif){fig-align="center"}
+
+## Metadata
+Example motion data files
+```markdown
+├─README.md
+└─sub-001/ses-01/
+├─eeg/
+...
+└─motion/
+    ├─sub-001_ses-01_task-<label>_tracksys-<label>_motion.tsv
+    ├─sub-001_ses-01_task-<label>_<label>_tracksys-<label>motion.json
+    ├─sub-001_ses-01_task-<label>_<label>_tracksys-<label>channels.tsv
+    ├─sub-001_ses-01_task-<label>_events.tsv
+    └─sub-001_ses-01_task-<label>_events.json
+```
+:::footer
+[BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
+:::
+
+## *_motion.json 
+::: columns
+::: {.column width="50%"}
+
+**REQUIRED:**
+
+-   TaskName, MotionTrackedPoints, StartTime, TrackingSystem, SamplingFrequency
+
+**RECOMMENDED:**
+
+-   TaskDescription, RecordingDuration, MotionChannelCount, SoftwareFilters, …
+
+**OPTIONAL:**
+
+-  Manufacuturer, RecordingSoftware, …
+
+:::
+
+::: {.column width="50%"}
+```json
+{
+TaskName: BIDS Motion fictive example,
+TaskDescription: Running around,
+StartTime:  2019-06-15T13:45:30[.00000] ,
+RecordingDuration: 4667.641106,
+TrackingSystemCount : 1,
+MotionTrackedPoints : 1,
+MotionChannelCount: 6,
+TrackingSystemName: IMU1,
+Manufacturer: HasoMed,
+TrackedPointsCount: 1,
+SamplingFrequency: 120,
+ACCChannelCount: 3,
+GYROChannelCount: 3,
+}
+```
+:::
+:::
+
+
+
+:::footer
+[BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
+:::
+
+## *_motion.tsv
+
+-   Currently **only** `.tsv` files
+-   Headers optional 
+-   Raw values per column
+
+| acc_x | acc_y | acc_z | gyro_x | gyro_y | gyro_z|
+|--------|--------|--------|--------|--------|--------|
+| 0.263  | 0.092  | 0.008  | 0.931  | 0.690  | 0.810  |
+| 0.695  | 0.192  | 0.844  | 0.398  | 0.885  | 0.895  |
+| 0.077  | 0.259  | 0.548  | 0.282  | 0.279  | 0.233  |
+| 0.558  | 0.096  | 0.803  | 0.750  | 0.847  | 0.239  |
+| 0.199  | 0.184  | 0.657  | 0.892  | 0.364  | 0.060  |
+| 0.966  | 0.727  | 0.521  | 0.759  | 0.352  | 0.813  |
+| ...    | ...    | ...    | ...    | ...    | ...    |
+
+
+:::footer
+[BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
+:::
+
+## *_channels.tsv 
+
+**REQUIRED**
+
+- Name, tracked_point, tracking_system, type, component, units
+
+**RECOMMENDED**
+
+-   Placement
+
+**OPTIONAL**
+
+- Description, sampling frequency
+
+**EXAMPLE:**
+```markdown	
+name            type    units   srate   tracked_point       component     placement		  tracking_system
+IMU1_lf_acc_x   ACCEL   m/s^2   222	    lf		    	    x             left_foot		  IMU1
+IMU1_lf_acc_y   ACCEL   m/s^2   222	    lf		    	    y             left_foot		  IMU1
+IMU1_lf_acc_z   ACCEL   m/s^2   222	    lf		    	    z             left_foot		  IMU1
+IMU1_lf_gyro_x  GYRO    rad/s   222	    lf		    	    x             left_foot		  IMU1
+IMU1_lf_gyro_y  GYRO    rad/s   222	    lf		    	    y             left_foot		  IMU1
+IMU1_lf_gyro_z  GYRO    rad/s   222	    lf		    	    z             left_foot		  IMU1
+```
+:::footer
+[BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
+:::
+
+## Summary motion data
+
+![](pics/bids_struct_example.png){fig-align="center"}
+
+:::footer
+[BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
+:::
+
+
+## 
+
+<h2 class="r-fit-text">Thank you for listening carefully</h2>
+
+![](pics/thanks.gif){fig-align="center"}
+
+
+Thanks to all of our (BIDS)-companions and all participants who ever provided data which is now in BIDS
+
+
+
