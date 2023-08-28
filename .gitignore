@@ -401,3 +401,5 @@ FodyWeavers.xsd
 # quarto
 /.quarto/
 /_site/
+/bids_intro_files
+/bids_intro.html
