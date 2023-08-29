@@ -35,17 +35,19 @@ format:
 
 > BIDS is based on **simple file** formats and folder structures
 
+::: {.fragment .fade-up}
 **DATA STRUCTURE**
 
 -   File formats to use (e.g. nifti, json, tsv) → [BIDS is NOT a file format]
 -   Naming convention for files and directories
-
+:::
+::: {.fragment .fade-up}
 **METADATA**
 
 -   Prevents metadata getting lost while doing your research
 -   Stored in json files, readable by both humans and machines
 -   Some metadata is better than no metadata
-
+:::
 
 ## Where do we want to go 
 
@@ -68,8 +70,6 @@ format:
 ## Where do we want to go {auto-animate="true"}
 
 **EXAMPLE**
-
-
 
 ::: columns
 ::: {.column width="50%"}
@@ -118,25 +118,28 @@ format:
 ## Common principles{auto-animate=true}
 
 ::: columns
+
 ::: {.column width="40%"}
 Level of requirement **for** files and **within** files:
 
--   **REQUIRED**
--   **RECOMMENDED**
+
+-   [**REQUIRED**]{.custom-red}
+-   [**RECOMMENDED**]{.custom-blue} 
 -   **OPTIONAL**
 :::
 
 ::: {.column width="55%"}
+
 ::: {.fragment .fade-in}
-![](pics/bids_dataset_req.png)
-:::
-::: {.fragment .fade-in}
-![](pics/bids_dataset_rec.png)
-:::
-:::
+![](pics/bids_dataset_req.png){.bordered-red}
 :::
 
+::: {.fragment .fade-in}
+![](pics/bids_dataset_rec.png){.bordered-blue}
+:::
 
+:::
+:::
 
 ::: footer
 [BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
@@ -145,7 +148,7 @@ Level of requirement **for** files and **within** files:
 ## Example: dataset description
 
 **Example dir structure**
-```markdown
+```{.markdown code-line-numbers="2"}
 ├─ README.tsv
 ├─ dataset_description.json
 ├─ participants.json
@@ -177,40 +180,56 @@ Level of requirement **for** files and **within** files:
 [BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
 :::
 
-## Example: paricipant files
+## Example: participant files
+**Example dir structure**
+```{.markdown code-line-numbers="3-4"}
+├─ README.tsv
+├─ dataset_description.json
+├─ participants.json
+├─ participants.tsv
+├─ sub-001
+| ├─ ses-01
+| └─ ses-02
+|
+├─ sub-002
+└─ sub-003
+```
 
-**participants.json***
+**participants.json**
 ```json
 {
 "age": {
-"Description": "age of the participant",  "Units": "years"   },
+      "Description": "age of the participant",  
+      "Units": "years"   
+      },
 "sex": {
-"Description": "sex as reported by the participant",  "Levels": {
-"M": "male",
-"F": "female"  },
-},
+    "Description": "sex as reported by the participant",  
+    "Levels": {
+      "M": "male",
+      "F": "female"  },
+    },
 }
 ```
 
 **participants.tsv**
 ```markdown
-participant_id 	age sex
-sub-001       34	  M
-sub-002       12	  F
-sub-003       33	  F
+participant_id 	  age     sex
+sub-001           34	  M
+sub-002           12	  F
+sub-003           33	  F
 ```
 
 ::: footer
 [BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
 :::
 
-## 
-<h2 class="r-fit-text">MOTION SPECIFIC DATA</h2>
+# MOTION SPECIFIC DATA {.sub-heading}
 ![](pics/dance.gif){fig-align="center"}
+
 
 ## Metadata
 Example motion data files
-```markdown
+```{.markdown code-line-numbers="5-8"}
 ├─README.md
 └─sub-001/ses-01/
 ├─eeg/
@@ -271,6 +290,7 @@ GYROChannelCount: 3,
 [BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
 :::
 
+
 ## *_motion.tsv
 
 -   Currently **only** `.tsv` files
@@ -329,14 +349,11 @@ IMU1_lf_gyro_z  GYRO    rad/s   222	    lf		    	    z             left_foot		  
 :::
 
 
-## 
-
-<h2 class="r-fit-text">Thank you for listening carefully</h2>
-
-![](pics/thanks.gif){fig-align="center"}
+# Thank you for listening carefully{.sub-heading}
+![](pics/thanks.gif){fig-align="center" height="20%"}
 
 
-Thanks to all of our (BIDS)-companions and all participants who ever provided data which is now in BIDS
+[Thanks to all of our (BIDS)-companions and all participants who ever provided data which is now in BIDS]{style="text-align: center;"}
 
 
 
