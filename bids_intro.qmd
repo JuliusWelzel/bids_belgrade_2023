@@ -188,9 +188,6 @@ Level of requirement **for** files and **within** files:
 ├─ participants.json
 ├─ participants.tsv
 ├─ sub-001
-| ├─ ses-01
-| └─ ses-02
-|
 ├─ sub-002
 └─ sub-003
 ```
@@ -235,11 +232,12 @@ Example motion data files
 ├─eeg/
 ...
 └─motion/
-    ├─sub-001_ses-01_task-<label>_tracksys-<label>_motion.tsv
-    ├─sub-001_ses-01_task-<label>_<label>_tracksys-<label>motion.json
-    ├─sub-001_ses-01_task-<label>_<label>_tracksys-<label>channels.tsv
-    ├─sub-001_ses-01_task-<label>_events.tsv
-    └─sub-001_ses-01_task-<label>_events.json
+    ├─sub-001_task-<label>_tracksys-<label>_motion.tsv
+    ├─sub-001_task-<label>_tracksys-<label>_motion.json
+    ├─sub-001_task-<label>_tracksys-<label>_channels.tsv
+    ├─sub-001_task-<label>_tracksys-<label>_channels.json
+    ├─sub-001_task-<label>_events.tsv
+    └─sub-001_task-<label>_events.json
 ```
 :::footer
 [BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
@@ -251,11 +249,11 @@ Example motion data files
 
 **REQUIRED:**
 
--   TaskName, MotionTrackedPoints, StartTime, TrackingSystem, SamplingFrequency
+-   TaskName, SamplingFrequency
 
 **RECOMMENDED:**
 
--   TaskDescription, RecordingDuration, MotionChannelCount, SoftwareFilters, …
+-   TaskDescription, MotionChannelCount, SoftwareFilters
 
 **OPTIONAL:**
 
@@ -266,14 +264,10 @@ Example motion data files
 ::: {.column width="50%"}
 ```json
 {
-TaskName: BIDS Motion fictive example,
+TaskName: SpotRotation,
 TaskDescription: Running around,
-StartTime:  2019-06-15T13:45:30[.00000] ,
-RecordingDuration: 4667.641106,
-TrackingSystemCount : 1,
-MotionTrackedPoints : 1,
+MissingValues: 0,
 MotionChannelCount: 6,
-TrackingSystemName: IMU1,
 Manufacturer: HasoMed,
 TrackedPointsCount: 1,
 SamplingFrequency: 120,
@@ -328,13 +322,13 @@ GYROChannelCount: 3,
 
 **EXAMPLE:**
 ```markdown	
-name            type    units   srate   tracked_point       component     placement		  tracking_system
-IMU1_lf_acc_x   ACCEL   m/s^2   222	    lf		    	    x             left_foot		  IMU1
-IMU1_lf_acc_y   ACCEL   m/s^2   222	    lf		    	    y             left_foot		  IMU1
-IMU1_lf_acc_z   ACCEL   m/s^2   222	    lf		    	    z             left_foot		  IMU1
-IMU1_lf_gyro_x  GYRO    rad/s   222	    lf		    	    x             left_foot		  IMU1
-IMU1_lf_gyro_y  GYRO    rad/s   222	    lf		    	    y             left_foot		  IMU1
-IMU1_lf_gyro_z  GYRO    rad/s   222	    lf		    	    z             left_foot		  IMU1
+name    type    units   srate   tracked_point       component     placement		  tracking_system
+acc_x   ACCEL   m/s^2   222	    lf		    	    x             left_foot		  IMU1
+acc_y   ACCEL   m/s^2   222	    lf		    	    y             left_foot		  IMU1
+acc_z   ACCEL   m/s^2   222	    lf		    	    z             left_foot		  IMU1
+gyro_x  GYRO    rad/s   222	    lf		    	    x             left_foot		  IMU1
+gyro_y  GYRO    rad/s   222	    lf		    	    y             left_foot		  IMU1
+gyro_z  GYRO    rad/s   222	    lf		    	    z             left_foot		  IMU1
 ```
 :::footer
 [BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
