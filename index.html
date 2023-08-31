@@ -553,11 +553,8 @@
 <span id="cb4-3"><a href="#cb4-3"></a>├─ participants.json</span>
 <span id="cb4-4"><a href="#cb4-4"></a>├─ participants.tsv</span>
 <span id="cb4-5"><a href="#cb4-5"></a>├─ sub-001</span>
-<span id="cb4-6"><a href="#cb4-6"></a>| ├─ ses-01</span>
-<span id="cb4-7"><a href="#cb4-7"></a>| └─ ses-02</span>
-<span id="cb4-8"><a href="#cb4-8"></a>|</span>
-<span id="cb4-9"><a href="#cb4-9"></a>├─ sub-002</span>
-<span id="cb4-10"><a href="#cb4-10"></a>└─ sub-003</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-6"><a href="#cb4-6"></a>├─ sub-002</span>
+<span id="cb4-7"><a href="#cb4-7"></a>└─ sub-003</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>participants.json</strong></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">{</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="dt">"age"</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -593,11 +590,12 @@
 <span id="cb7-3"><a href="#cb7-3"></a>├─eeg/</span>
 <span id="cb7-4"><a href="#cb7-4"></a>...</span>
 <span id="cb7-5"><a href="#cb7-5"></a>└─motion/</span>
-<span id="cb7-6"><a href="#cb7-6"></a>    ├─sub-001_ses-01_task-<span class="kw">&lt;label&gt;</span>_tracksys-&lt;label&gt;_motion.tsv</span>
-<span id="cb7-7"><a href="#cb7-7"></a>    ├─sub-001_ses-01_task-<span class="kw">&lt;label&gt;</span>_&lt;label&gt;_tracksys-<span class="kw">&lt;label&gt;</span>motion.json</span>
-<span id="cb7-8"><a href="#cb7-8"></a>    ├─sub-001_ses-01_task-<span class="kw">&lt;label&gt;</span>_&lt;label&gt;_tracksys-<span class="kw">&lt;label&gt;</span>channels.tsv</span>
-<span id="cb7-9"><a href="#cb7-9"></a>    ├─sub-001_ses-01_task-<span class="kw">&lt;label&gt;</span>_events.tsv</span>
-<span id="cb7-10"><a href="#cb7-10"></a>    └─sub-001_ses-01_task-<span class="kw">&lt;label&gt;</span>_events.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a href="#cb7-6"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_tracksys-&lt;label&gt;_motion.tsv</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_tracksys-&lt;label&gt;_motion.json</span>
+<span id="cb7-8"><a href="#cb7-8"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_tracksys-&lt;label&gt;_channels.tsv</span>
+<span id="cb7-9"><a href="#cb7-9"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_tracksys-&lt;label&gt;_channels.json</span>
+<span id="cb7-10"><a href="#cb7-10"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_events.tsv</span>
+<span id="cb7-11"><a href="#cb7-11"></a>    └─sub-001_task-<span class="kw">&lt;label&gt;</span>_events.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="footer">
 <p><a href="https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html">BIDS motion specification</a></p>
 </div>
@@ -608,11 +606,11 @@
 <div class="column" style="width:50%;">
 <p><strong>REQUIRED:</strong></p>
 <ul>
-<li>TaskName, MotionTrackedPoints, StartTime, TrackingSystem, SamplingFrequency</li>
+<li>TaskName, SamplingFrequency</li>
 </ul>
 <p><strong>RECOMMENDED:</strong></p>
 <ul>
-<li>TaskDescription, RecordingDuration, MotionChannelCount, SoftwareFilters, …</li>
+<li>TaskDescription, MotionChannelCount, SoftwareFilters</li>
 </ul>
 <p><strong>OPTIONAL:</strong></p>
 <ul>
@@ -620,20 +618,16 @@
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="sourceCode" id="cb8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">{</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="er">TaskName</span><span class="fu">:</span> <span class="er">BIDS</span> <span class="er">Motion</span> <span class="er">fictive</span> <span class="er">example</span><span class="fu">,</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="er">TaskName</span><span class="fu">:</span> <span class="er">SpotRotation</span><span class="fu">,</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="er">TaskDescription</span><span class="fu">:</span> <span class="er">Running</span> <span class="er">around</span><span class="fu">,</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="er">StartTime</span><span class="fu">:</span>  <span class="dv">2019-06-15</span><span class="er">T13:</span><span class="dv">45</span><span class="er">:</span><span class="dv">30</span><span class="ot">[</span><span class="er">.</span><span class="dv">00000</span><span class="ot">]</span> <span class="fu">,</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="er">RecordingDuration</span><span class="fu">:</span> <span class="fl">4667.641106</span><span class="fu">,</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="er">TrackingSystemCount</span> <span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="er">MotionTrackedPoints</span> <span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="er">MotionChannelCount</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="er">TrackingSystemName</span><span class="fu">:</span> <span class="er">IMU1</span><span class="fu">,</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="er">Manufacturer</span><span class="fu">:</span> <span class="er">HasoMed</span><span class="fu">,</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="er">TrackedPointsCount</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="er">SamplingFrequency</span><span class="fu">:</span> <span class="dv">120</span><span class="fu">,</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="er">ACCChannelCount</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="er">GYROChannelCount</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
-<span id="cb8-15"><a href="#cb8-15"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="er">MissingValues</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="er">MotionChannelCount</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="er">Manufacturer</span><span class="fu">:</span> <span class="er">HasoMed</span><span class="fu">,</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="er">TrackedPointsCount</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="er">SamplingFrequency</span><span class="fu">:</span> <span class="dv">120</span><span class="fu">,</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="er">ACCChannelCount</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="er">GYROChannelCount</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="footer">
@@ -736,13 +730,13 @@
 <li>Description, sampling frequency</li>
 </ul>
 <p><strong>EXAMPLE:</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a>name            type    units   srate   tracked_point       component     placement       tracking_system</span>
-<span id="cb9-2"><a href="#cb9-2"></a>IMU1_lf_acc_x   ACCEL   m/s^2   222     lf                  x             left_foot       IMU1</span>
-<span id="cb9-3"><a href="#cb9-3"></a>IMU1_lf_acc_y   ACCEL   m/s^2   222     lf                  y             left_foot       IMU1</span>
-<span id="cb9-4"><a href="#cb9-4"></a>IMU1_lf_acc_z   ACCEL   m/s^2   222     lf                  z             left_foot       IMU1</span>
-<span id="cb9-5"><a href="#cb9-5"></a>IMU1_lf_gyro_x  GYRO    rad/s   222     lf                  x             left_foot       IMU1</span>
-<span id="cb9-6"><a href="#cb9-6"></a>IMU1_lf_gyro_y  GYRO    rad/s   222     lf                  y             left_foot       IMU1</span>
-<span id="cb9-7"><a href="#cb9-7"></a>IMU1_lf_gyro_z  GYRO    rad/s   222     lf                  z             left_foot       IMU1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a>name    type    units   srate   tracked_point       component     placement       tracking_system</span>
+<span id="cb9-2"><a href="#cb9-2"></a>acc_x   ACCEL   m/s^2   222     lf                  x             left_foot       IMU1</span>
+<span id="cb9-3"><a href="#cb9-3"></a>acc_y   ACCEL   m/s^2   222     lf                  y             left_foot       IMU1</span>
+<span id="cb9-4"><a href="#cb9-4"></a>acc_z   ACCEL   m/s^2   222     lf                  z             left_foot       IMU1</span>
+<span id="cb9-5"><a href="#cb9-5"></a>gyro_x  GYRO    rad/s   222     lf                  x             left_foot       IMU1</span>
+<span id="cb9-6"><a href="#cb9-6"></a>gyro_y  GYRO    rad/s   222     lf                  y             left_foot       IMU1</span>
+<span id="cb9-7"><a href="#cb9-7"></a>gyro_z  GYRO    rad/s   222     lf                  z             left_foot       IMU1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="footer">
 <p><a href="https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html">BIDS motion specification</a></p>
 </div>
