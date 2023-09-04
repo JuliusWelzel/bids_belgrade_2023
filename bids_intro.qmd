@@ -23,11 +23,17 @@ format:
 -   Lack of consensus leads to misunderstanding and time wasted on **rearranging data** or **rewriting scripts** that expect particular file formats and organization
 
 ::: {.fragment .fade-up}
--   Create a **standard** for organizing motion data building on BIDS
+>   Create a **standard** for organizing motion data building on BIDS
+:::
+::: {.fragment .fade-up}
+>   Easy to follow **guidelines** for researchers to share their data (including conversion tools in FieldTrip, MNE, EEGLAB)
+:::
+::: {.fragment .fade-up}
+>   Share data to validate pipelines (e.g. OpenNeuro, NEMAR)
 :::
 
 ::: footer
-[Gorgolewski, *Scientific Data*, 2016](https://www.nature.com/articles/sdata201644)
+[Gorgolewski ea., *Scientific Data*, 2016](https://www.nature.com/articles/sdata201644), [Delmore, *Scientific Reports*, 2023](https://www.nature.com/articles/s41598-023-27528-0) 
 :::
 
 
@@ -47,6 +53,111 @@ format:
 -   Prevents metadata getting lost while doing your research
 -   Stored in json files, readable by both humans and machines
 -   Some metadata is better than no metadata
+:::
+
+
+## Common principles{auto-animate=true}
+
+::: columns
+
+::: {.column width="45%"}
+Level of requirement **for** files and **within** files:
+
+
+-   [**REQUIRED**]{.custom-red}
+-   [**RECOMMENDED**]{.custom-blue} 
+-   **OPTIONAL**
+:::
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-in}
+![](pics/bids_dataset_req.png){.bordered-red}
+:::
+::: {.fragment .fade-in}
+![](pics/bids_dataset_rec.png){.bordered-blue}
+:::
+
+:::
+:::
+
+::: footer
+[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
+:::
+
+## Example: dataset description
+
+**Example dir structure**
+```{.markdown code-line-numbers="2"}
+├─ README.tsv
+├─ dataset_description.json
+├─ participants.json
+├─ participants.tsv
+├─ sub-001
+| ├─ ses-01
+| └─ ses-02
+├─ sub-002
+└─ sub-003
+```
+**dataset_description.json**
+```json
+{
+"Name": "The mother of all experiments",  
+"BIDSVersion": "1.4.0",
+"DatasetType": "raw",  
+"License": "CC0",
+"Authors": [ "Paul Broca", "Carl Wernicke" ],  
+"Funding": [ "National Institute of Neuroscience Grant F37823MFH1" ], 
+"EthicsApprovals": ["Human Research Protections Office (Protocol  AR0928" ],
+"DatasetDOI": "10.0.2.3/dfjj.10"
+}
+
+```
+
+
+::: footer
+[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
+:::
+
+## Example: participant files{.smaller}
+
+**Example dir structure**
+```{.markdown code-line-numbers="3-4"}
+├─ README.tsv
+├─ dataset_description.json
+├─ participants.json
+├─ participants.tsv
+├─ sub-001
+├─ sub-002
+```
+
+**participants.json**
+```json
+{
+"age": {
+      "Description": "age of the participant",  
+      "Units": "years"   
+      },
+"sex": {
+    "Description": "sex as reported by the participant",  
+    "Levels": {
+      "M": "male",
+      "F": "female"  },
+    },
+}
+```
+
+
+**participants.tsv**
+```markdown
+participant_id 	  age     sex
+sub-001           34	  M
+sub-002           12	  F
+```
+
+
+::: footer
+[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
 :::
 
 ## Where do we want to go 
@@ -73,7 +184,7 @@ format:
 
 ::: columns
 ::: {.column width="50%"}
-```markdown
+```{.markdown code-line-numbers="8"}
 ├─ README.md
 ├─ dataset_description.json
 ├─ participants.json
@@ -84,7 +195,6 @@ format:
 | |  └─motion/
 | ├─ ses-02
 | └─ sub-001_scans.tsv
-|
 ├─ sub-002
 └─ sub-003
 ```
@@ -99,134 +209,51 @@ format:
 [BIDS specifications](https://bids-specification.readthedocs.io/en/stable/)
 :::
 
-## Definitions
 
--   **Dataset** - A dataset consists of data acquired from one or more subjects, possibly from multiple sessions.
--   **Subject** - a single participant in a study. A subject can be scanned multiple times, in which case each scan is a separate session.
--   **Session** - a logical grouping of neuroimaging and behavioral data consistent across subjects. Session can (but doesn't have to) be synonymous to a visit in a longitudinal study. 
--   **Task** - a set of structured activities performed by the participant. Tasks are usually accompanied by stimuli and responses, and can greatly vary in complexity. 
--   **Data type** - a functional group of different types of data. Some BIDS defined data types are: 
-    -   anat (structural imaging such as T1, T2 and so on)
-    -   eeg (electroencephalography)
-    -   motion (time series of object positions, orientations, or their time derivatives)
-
-
-::: footer
-[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
-:::
-
-## Common principles{auto-animate=true}
-
-::: columns
-
-::: {.column width="40%"}
-Level of requirement **for** files and **within** files:
-
-
--   [**REQUIRED**]{.custom-red}
--   [**RECOMMENDED**]{.custom-blue} 
--   **OPTIONAL**
-:::
-
-::: {.column width="55%"}
-
-::: {.fragment .fade-in}
-![](pics/bids_dataset_req.png){.bordered-red}
-:::
-
-::: {.fragment .fade-in}
-![](pics/bids_dataset_rec.png){.bordered-blue}
-:::
-
-:::
-:::
-
-::: footer
-[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
-:::
-
-## Example: dataset description
-
-**Example dir structure**
-```{.markdown code-line-numbers="2"}
-├─ README.tsv
-├─ dataset_description.json
-├─ participants.json
-├─ participants.tsv
-├─ sub-001
-| ├─ ses-01
-| └─ ses-02
-|
-├─ sub-002
-└─ sub-003
-```
-**dataset_description.json**
-```json
-{
-"Name": "The mother of all experiments",  
-"BIDSVersion": "1.4.0",
-"DatasetType": "raw",  
-"License": "CC0",
-"Authors": [ "Paul Broca", "Carl Wernicke" ],  
-"Funding": [ "National Institute of Neuroscience Grant F37823MFH1" ], 
-"EthicsApprovals": ["Human Research Protections Office (Protocol  AR0928" ],
-"DatasetDOI": "10.0.2.3/dfjj.10"
-}
-
-```
-
-
-::: footer
-[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
-:::
-
-## Example: participant files
-**Example dir structure**
-```{.markdown code-line-numbers="3-4"}
-├─ README.tsv
-├─ dataset_description.json
-├─ participants.json
-├─ participants.tsv
-├─ sub-001
-├─ sub-002
-└─ sub-003
-```
-
-**participants.json**
-```json
-{
-"age": {
-      "Description": "age of the participant",  
-      "Units": "years"   
-      },
-"sex": {
-    "Description": "sex as reported by the participant",  
-    "Levels": {
-      "M": "male",
-      "F": "female"  },
-    },
-}
-```
-
-**participants.tsv**
-```markdown
-participant_id 	  age     sex
-sub-001           34	  M
-sub-002           12	  F
-sub-003           33	  F
-```
-
-::: footer
-[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
-:::
-
-# MOTION SPECIFIC DATA {.sub-heading}
+## MOTION SPECIFIC DATA {.sub-heading}
 ![](pics/dance.gif){fig-align="center"}
 
 
+## Raw data
+Example motion data files
+```{.markdown code-line-numbers="6"}
+├─README.md
+└─sub-001/ses-01/
+├─eeg/
+...
+└─motion/
+    ├─sub-001_task-<label>_tracksys-<label>_motion.tsv
+    ├─sub-001_task-<label>_tracksys-<label>_motion.json
+    ├─sub-001_task-<label>_tracksys-<label>_channels.tsv
+    ├─sub-001_task-<label>_tracksys-<label>_channels.json
+    ├─sub-001_task-<label>_events.tsv
+    └─sub-001_task-<label>_events.json
+```
+  
+## *_motion.tsv
+
+-   Currently **only** `.tsv` files
+-   Headers optional 
+-   One channel per column
+
+| acc_x | acc_y | acc_z | gyro_x | gyro_y | gyro_z|
+|--------|--------|--------|--------|--------|--------|
+| 0.263  | 0.092  | 0.008  | 0.931  | 0.690  | 0.810  |
+| 0.695  | 0.192  | 0.844  | 0.398  | 0.885  | 0.895  |
+| 0.077  | 0.259  | 0.548  | 0.282  | 0.279  | 0.233  |
+| 0.558  | 0.096  | 0.803  | 0.750  | 0.847  | 0.239  |
+| 0.199  | 0.184  | 0.657  | 0.892  | 0.364  | 0.060  |
+| 0.966  | 0.727  | 0.521  | 0.759  | 0.352  | 0.813  |
+| ...    | ...    | ...    | ...    | ...    | ...    |
+
+
+:::footer
+[BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
+:::
+
 ## Metadata
 Example motion data files
-```{.markdown code-line-numbers="5-8"}
+```{.markdown code-line-numbers="7-8"}
 ├─README.md
 └─sub-001/ses-01/
 ├─eeg/
@@ -257,15 +284,15 @@ Example motion data files
 
 **OPTIONAL:**
 
--  Manufacuturer, RecordingSoftware, …
+-  Manufacturer, RecordingSoftware, …
 
 :::
 
 ::: {.column width="50%"}
-```json
+```{.json code-line-numbers="2,8"}
 {
 TaskName: SpotRotation,
-TaskDescription: Running around,
+TaskDescription: Spinning around,
 MissingValues: 0,
 MotionChannelCount: 6,
 Manufacturer: HasoMed,
@@ -278,39 +305,16 @@ GYROChannelCount: 3,
 :::
 :::
 
-
-
 :::footer
 [BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
 :::
 
-
-## *_motion.tsv
-
--   Currently **only** `.tsv` files
--   Headers optional 
--   Raw values per column
-
-| acc_x | acc_y | acc_z | gyro_x | gyro_y | gyro_z|
-|--------|--------|--------|--------|--------|--------|
-| 0.263  | 0.092  | 0.008  | 0.931  | 0.690  | 0.810  |
-| 0.695  | 0.192  | 0.844  | 0.398  | 0.885  | 0.895  |
-| 0.077  | 0.259  | 0.548  | 0.282  | 0.279  | 0.233  |
-| 0.558  | 0.096  | 0.803  | 0.750  | 0.847  | 0.239  |
-| 0.199  | 0.184  | 0.657  | 0.892  | 0.364  | 0.060  |
-| 0.966  | 0.727  | 0.521  | 0.759  | 0.352  | 0.813  |
-| ...    | ...    | ...    | ...    | ...    | ...    |
-
-
-:::footer
-[BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
-:::
 
 ## *_channels.tsv 
 
 **REQUIRED**
 
-- Name, tracked_point, tracking_system, type, component, units
+- name, component, type, tracked_point, units
 
 **RECOMMENDED**
 
@@ -322,13 +326,13 @@ GYROChannelCount: 3,
 
 **EXAMPLE:**
 ```markdown	
-name    type    units   srate   tracked_point       component     placement		  tracking_system
-acc_x   ACCEL   m/s^2   222	    lf		    	    x             left_foot		  IMU1
-acc_y   ACCEL   m/s^2   222	    lf		    	    y             left_foot		  IMU1
-acc_z   ACCEL   m/s^2   222	    lf		    	    z             left_foot		  IMU1
-gyro_x  GYRO    rad/s   222	    lf		    	    x             left_foot		  IMU1
-gyro_y  GYRO    rad/s   222	    lf		    	    y             left_foot		  IMU1
-gyro_z  GYRO    rad/s   222	    lf		    	    z             left_foot		  IMU1
+name    type    units   srate   tracked_point       component     placement
+acc_x   ACCEL   m/s^2   222	    lf		    	    x             left_foot
+acc_y   ACCEL   m/s^2   222	    lf		    	    y             left_foot
+acc_z   ACCEL   m/s^2   222	    lf		    	    z             left_foot
+gyro_x  GYRO    rad/s   222	    lf		    	    x             left_foot
+gyro_y  GYRO    rad/s   222	    lf		    	    y             left_foot
+gyro_z  GYRO    rad/s   222	    lf		    	    z             left_foot
 ```
 :::footer
 [BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
@@ -347,7 +351,28 @@ gyro_z  GYRO    rad/s   222	    lf		    	    z             left_foot		  IMU1
 ![](pics/thanks.gif){fig-align="center" height="20%"}
 
 
-[Thanks to all of our (BIDS)-companions and all participants who ever provided data which is now in BIDS]{style="text-align: center;"}
+[Thanks to Sein Jeung for pushing this to completion over the past three years]{.center-text}
+
+[Thanks to all of the BIDS Maintainers and Devs who help to implement this]{.center-text}
+
+[Thanks to my working group, who have given me the freedom to work in this]{.center-text}
+
+[Thanks to all of our (BIDS)-companions and all participants who ever provided data which is now in BIDS]{.center-text}
 
 
 
+## Definitions
+
+-   **Dataset** - A dataset consists of data acquired from one or more subjects, possibly from multiple sessions.
+-   **Subject** - a single participant in a study. A subject can be scanned multiple times, in which case each scan is a separate session.
+-   **Session** - a logical grouping of neuroimaging and behavioral data consistent across subjects. Session can (but doesn't have to) be synonymous to a visit in a longitudinal study. 
+-   **Task** - a set of structured activities performed by the participant. Tasks are usually accompanied by stimuli and responses, and can greatly vary in complexity. 
+-   **Data type** - a functional group of different types of data. Some BIDS defined data types are: 
+    -   anat (structural imaging such as T1, T2 and so on)
+    -   eeg (electroencephalography)
+    -   motion (time series of object positions, orientations, or their time derivatives)
+
+
+::: footer
+[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
+:::
