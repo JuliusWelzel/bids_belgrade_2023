@@ -448,14 +448,14 @@
 <section id="common-principles" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Common principles</h2>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:45%;">
 <p>Level of requirement <strong>for</strong> files and <strong>within</strong> files:</p>
 <ul>
 <li><span class="custom-red"><strong>REQUIRED</strong></span></li>
 <li><span class="custom-blue"><strong>RECOMMENDED</strong></span></li>
 <li><strong>OPTIONAL</strong></li>
 </ul>
-</div><div class="column" style="width:55%;">
+</div><div class="column" style="width:50%;">
 <div class="fragment fade-in">
 <p><img data-src="pics/bids_dataset_req.png" class="bordered-red"></p>
 </div>
@@ -467,7 +467,9 @@
 <div class="footer">
 <p><a href="https://bids-specification.readthedocs.io/en/stable/02-common-principles.html">BIDS common prinicples</a></p>
 </div>
-<h3 id="example-dataset-description">Example: dataset description</h3>
+</section>
+<section id="example-dataset-description" class="slide level2">
+<h2>Example: dataset description</h2>
 <p><strong>Example dir structure</strong></p>
 <div class="sourceCode" id="cb1" data-code-line-numbers="2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>├─ README.tsv</span>
 <span id="cb1-2"><a href="#cb1-2"></a>├─ dataset_description.json</span>
@@ -492,15 +494,16 @@
 <div class="footer">
 <p><a href="https://bids-specification.readthedocs.io/en/stable/02-common-principles.html">BIDS common prinicples</a></p>
 </div>
-<h3 class="smaller" id="example-participant-files">Example: participant files</h3>
+</section>
+<section id="example-participant-files" class="slide level2 smaller">
+<h2>Example: participant files</h2>
 <p><strong>Example dir structure</strong></p>
 <div class="sourceCode" id="cb3" data-code-line-numbers="3-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a>├─ README.tsv</span>
 <span id="cb3-2"><a href="#cb3-2"></a>├─ dataset_description.json</span>
 <span id="cb3-3"><a href="#cb3-3"></a>├─ participants.json</span>
 <span id="cb3-4"><a href="#cb3-4"></a>├─ participants.tsv</span>
 <span id="cb3-5"><a href="#cb3-5"></a>├─ sub-001</span>
-<span id="cb3-6"><a href="#cb3-6"></a>├─ sub-002</span>
-<span id="cb3-7"><a href="#cb3-7"></a>└─ sub-003</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6"></a>├─ sub-002</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>participants.json</strong></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">{</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="dt">"age"</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -517,8 +520,7 @@
 <p><strong>participants.tsv</strong></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a>participant_id    age     sex</span>
 <span id="cb5-2"><a href="#cb5-2"></a>sub-001           34      M</span>
-<span id="cb5-3"><a href="#cb5-3"></a>sub-002           12      F</span>
-<span id="cb5-4"><a href="#cb5-4"></a>sub-003           33      F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3"></a>sub-002           12      F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="footer">
 <p><a href="https://bids-specification.readthedocs.io/en/stable/02-common-principles.html">BIDS common prinicples</a></p>
 </div>
