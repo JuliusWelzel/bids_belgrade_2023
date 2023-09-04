@@ -406,12 +406,22 @@
 <li>Lack of consensus leads to misunderstanding and time wasted on <strong>rearranging data</strong> or <strong>rewriting scripts</strong> that expect particular file formats and organization</li>
 </ul>
 <div class="fragment fade-up">
-<ul>
-<li>Create a <strong>standard</strong> for organizing motion data building on BIDS</li>
-</ul>
+<blockquote>
+<p>Create a <strong>standard</strong> for organizing motion data building on BIDS</p>
+</blockquote>
+</div>
+<div class="fragment fade-up">
+<blockquote>
+<p>Easy to follow <strong>guidelines</strong> for researchers to share their data (including conversion tools in FieldTrip, MNE, EEGLAB)</p>
+</blockquote>
+</div>
+<div class="fragment fade-up">
+<blockquote>
+<p>Share data to validate pipelines (e.g.&nbsp;OpenNeuro, NEMAR)</p>
+</blockquote>
 </div>
 <div class="footer">
-<p><a href="https://www.nature.com/articles/sdata201644">Gorgolewski, <em>Scientific Data</em>, 2016</a></p>
+<p><a href="https://www.nature.com/articles/sdata201644">Gorgolewski ea., <em>Scientific Data</em>, 2016</a>, <a href="https://www.nature.com/articles/s41598-023-27528-0">Delmore, <em>Scientific Reports</em>, 2023</a></p>
 </div>
 </section>
 <section id="what-is-bids" class="slide level2">
@@ -433,65 +443,6 @@
 <li>Stored in json files, readable by both humans and machines</li>
 <li>Some metadata is better than no metadata</li>
 </ul>
-</div>
-</section>
-<section id="where-do-we-want-to-go" class="slide level2">
-<h2>Where do we want to go</h2>
-<p><br>
-</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="pics/mobi.jpg"></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="pics/fries_normal.jpg"></p>
-</div>
-</div>
-<div class="footer">
-<p><a href="https://bids-specification.readthedocs.io/en/stable/">BIDS specifications</a></p>
-</div>
-</section>
-<section id="where-do-we-want-to-go-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Where do we want to go</h2>
-<p><strong>EXAMPLE</strong></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode markdown hljs"><span id="cb1-1" class="hljs-ln-code"><a href="#cb1-1"></a>├─ README.md</span>
-<span id="cb1-2" class="hljs-ln-code"><a href="#cb1-2"></a>├─ dataset_description.json</span>
-<span id="cb1-3" class="hljs-ln-code"><a href="#cb1-3"></a>├─ participants.json</span>
-<span id="cb1-4" class="hljs-ln-code"><a href="#cb1-4"></a>├─ participants.tsv</span>
-<span id="cb1-5" class="hljs-ln-code"><a href="#cb1-5"></a>├─ sub-001</span>
-<span id="cb1-6" class="hljs-ln-code"><a href="#cb1-6"></a>| ├─ses-01</span>
-<span id="cb1-7" class="hljs-ln-code"><a href="#cb1-7"></a>| |  ├─eeg/</span>
-<span id="cb1-8" class="hljs-ln-code"><a href="#cb1-8"></a>| |  └─motion/</span>
-<span id="cb1-9" class="hljs-ln-code"><a href="#cb1-9"></a>| ├─ ses-02</span>
-<span id="cb1-10" class="hljs-ln-code"><a href="#cb1-10"></a>| └─ sub-001_scans.tsv</span>
-<span id="cb1-11" class="hljs-ln-code"><a href="#cb1-11"></a>|</span>
-<span id="cb1-12" class="hljs-ln-code"><a href="#cb1-12"></a>├─ sub-002</span>
-<span id="cb1-13" class="hljs-ln-code"><a href="#cb1-13"></a>└─ sub-003</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column" style="width:50%;">
-<p><img data-src="pics/fries_clean.jpg"></p>
-</div>
-</div>
-<div class="footer">
-<p><a href="https://bids-specification.readthedocs.io/en/stable/">BIDS specifications</a></p>
-</div>
-</section>
-<section id="definitions" class="slide level2">
-<h2>Definitions</h2>
-<ul>
-<li><strong>Dataset</strong> - A dataset consists of data acquired from one or more subjects, possibly from multiple sessions.</li>
-<li><strong>Subject</strong> - a single participant in a study. A subject can be scanned multiple times, in which case each scan is a separate session.</li>
-<li><strong>Session</strong> - a logical grouping of neuroimaging and behavioral data consistent across subjects. Session can (but doesn’t have to) be synonymous to a visit in a longitudinal study.</li>
-<li><strong>Task</strong> - a set of structured activities performed by the participant. Tasks are usually accompanied by stimuli and responses, and can greatly vary in complexity.</li>
-<li><strong>Data type</strong> - a functional group of different types of data. Some BIDS defined data types are:
-<ul>
-<li>anat (structural imaging such as T1, T2 and so on)</li>
-<li>eeg (electroencephalography)</li>
-<li>motion (time series of object positions, orientations, or their time derivatives)</li>
-</ul></li>
-</ul>
-<div class="footer">
-<p><a href="https://bids-specification.readthedocs.io/en/stable/02-common-principles.html">BIDS common prinicples</a></p>
 </div>
 </section>
 <section id="common-principles" class="slide level2" data-auto-animate="true">
@@ -516,76 +467,110 @@
 <div class="footer">
 <p><a href="https://bids-specification.readthedocs.io/en/stable/02-common-principles.html">BIDS common prinicples</a></p>
 </div>
-</section>
-<section id="example-dataset-description" class="slide level2">
-<h2>Example: dataset description</h2>
+<h3 id="example-dataset-description">Example: dataset description</h3>
 <p><strong>Example dir structure</strong></p>
-<div class="sourceCode" id="cb2" data-code-line-numbers="2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a>├─ README.tsv</span>
-<span id="cb2-2"><a href="#cb2-2"></a>├─ dataset_description.json</span>
-<span id="cb2-3"><a href="#cb2-3"></a>├─ participants.json</span>
-<span id="cb2-4"><a href="#cb2-4"></a>├─ participants.tsv</span>
-<span id="cb2-5"><a href="#cb2-5"></a>├─ sub-001</span>
-<span id="cb2-6"><a href="#cb2-6"></a>| ├─ ses-01</span>
-<span id="cb2-7"><a href="#cb2-7"></a>| └─ ses-02</span>
-<span id="cb2-8"><a href="#cb2-8"></a>|</span>
-<span id="cb2-9"><a href="#cb2-9"></a>├─ sub-002</span>
-<span id="cb2-10"><a href="#cb2-10"></a>└─ sub-003</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-code-line-numbers="2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>├─ README.tsv</span>
+<span id="cb1-2"><a href="#cb1-2"></a>├─ dataset_description.json</span>
+<span id="cb1-3"><a href="#cb1-3"></a>├─ participants.json</span>
+<span id="cb1-4"><a href="#cb1-4"></a>├─ participants.tsv</span>
+<span id="cb1-5"><a href="#cb1-5"></a>├─ sub-001</span>
+<span id="cb1-6"><a href="#cb1-6"></a>| ├─ ses-01</span>
+<span id="cb1-7"><a href="#cb1-7"></a>| └─ ses-02</span>
+<span id="cb1-8"><a href="#cb1-8"></a>├─ sub-002</span>
+<span id="cb1-9"><a href="#cb1-9"></a>└─ sub-003</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>dataset_description.json</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">{</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"The mother of all experiments"</span><span class="fu">,</span>  </span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="dt">"BIDSVersion"</span><span class="fu">:</span> <span class="st">"1.4.0"</span><span class="fu">,</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="dt">"DatasetType"</span><span class="fu">:</span> <span class="st">"raw"</span><span class="fu">,</span>  </span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="dt">"License"</span><span class="fu">:</span> <span class="st">"CC0"</span><span class="fu">,</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="dt">"Authors"</span><span class="fu">:</span> <span class="ot">[</span> <span class="st">"Paul Broca"</span><span class="ot">,</span> <span class="st">"Carl Wernicke"</span> <span class="ot">]</span><span class="fu">,</span>  </span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="dt">"Funding"</span><span class="fu">:</span> <span class="ot">[</span> <span class="st">"National Institute of Neuroscience Grant F37823MFH1"</span> <span class="ot">]</span><span class="fu">,</span> </span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="dt">"EthicsApprovals"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"Human Research Protections Office (Protocol  AR0928"</span> <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="dt">"DatasetDOI"</span><span class="fu">:</span> <span class="st">"10.0.2.3/dfjj.10"</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"The mother of all experiments"</span><span class="fu">,</span>  </span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="dt">"BIDSVersion"</span><span class="fu">:</span> <span class="st">"1.4.0"</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="dt">"DatasetType"</span><span class="fu">:</span> <span class="st">"raw"</span><span class="fu">,</span>  </span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="dt">"License"</span><span class="fu">:</span> <span class="st">"CC0"</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="dt">"Authors"</span><span class="fu">:</span> <span class="ot">[</span> <span class="st">"Paul Broca"</span><span class="ot">,</span> <span class="st">"Carl Wernicke"</span> <span class="ot">]</span><span class="fu">,</span>  </span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="dt">"Funding"</span><span class="fu">:</span> <span class="ot">[</span> <span class="st">"National Institute of Neuroscience Grant F37823MFH1"</span> <span class="ot">]</span><span class="fu">,</span> </span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="dt">"EthicsApprovals"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"Human Research Protections Office (Protocol  AR0928"</span> <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="dt">"DatasetDOI"</span><span class="fu">:</span> <span class="st">"10.0.2.3/dfjj.10"</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="footer">
 <p><a href="https://bids-specification.readthedocs.io/en/stable/02-common-principles.html">BIDS common prinicples</a></p>
 </div>
-</section>
-<section id="example-participant-files" class="slide level2">
-<h2>Example: participant files</h2>
+<h3 class="smaller" id="example-participant-files">Example: participant files</h3>
 <p><strong>Example dir structure</strong></p>
-<div class="sourceCode" id="cb4" data-code-line-numbers="3-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a>├─ README.tsv</span>
-<span id="cb4-2"><a href="#cb4-2"></a>├─ dataset_description.json</span>
-<span id="cb4-3"><a href="#cb4-3"></a>├─ participants.json</span>
-<span id="cb4-4"><a href="#cb4-4"></a>├─ participants.tsv</span>
-<span id="cb4-5"><a href="#cb4-5"></a>├─ sub-001</span>
-<span id="cb4-6"><a href="#cb4-6"></a>├─ sub-002</span>
-<span id="cb4-7"><a href="#cb4-7"></a>└─ sub-003</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3" data-code-line-numbers="3-4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a>├─ README.tsv</span>
+<span id="cb3-2"><a href="#cb3-2"></a>├─ dataset_description.json</span>
+<span id="cb3-3"><a href="#cb3-3"></a>├─ participants.json</span>
+<span id="cb3-4"><a href="#cb3-4"></a>├─ participants.tsv</span>
+<span id="cb3-5"><a href="#cb3-5"></a>├─ sub-001</span>
+<span id="cb3-6"><a href="#cb3-6"></a>├─ sub-002</span>
+<span id="cb3-7"><a href="#cb3-7"></a>└─ sub-003</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>participants.json</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">{</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="dt">"age"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>      <span class="dt">"Description"</span><span class="fu">:</span> <span class="st">"age of the participant"</span><span class="fu">,</span>  </span>
-<span id="cb5-4"><a href="#cb5-4"></a>      <span class="dt">"Units"</span><span class="fu">:</span> <span class="st">"years"</span>   </span>
-<span id="cb5-5"><a href="#cb5-5"></a>      <span class="fu">},</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="dt">"sex"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a>    <span class="dt">"Description"</span><span class="fu">:</span> <span class="st">"sex as reported by the participant"</span><span class="fu">,</span>  </span>
-<span id="cb5-8"><a href="#cb5-8"></a>    <span class="dt">"Levels"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>      <span class="dt">"M"</span><span class="fu">:</span> <span class="st">"male"</span><span class="fu">,</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>      <span class="dt">"F"</span><span class="fu">:</span> <span class="st">"female"</span>  <span class="fu">},</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a>    <span class="fu">},</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="dt">"age"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>      <span class="dt">"Description"</span><span class="fu">:</span> <span class="st">"age of the participant"</span><span class="fu">,</span>  </span>
+<span id="cb4-4"><a href="#cb4-4"></a>      <span class="dt">"Units"</span><span class="fu">:</span> <span class="st">"years"</span>   </span>
+<span id="cb4-5"><a href="#cb4-5"></a>      <span class="fu">},</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="dt">"sex"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="dt">"Description"</span><span class="fu">:</span> <span class="st">"sex as reported by the participant"</span><span class="fu">,</span>  </span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="dt">"Levels"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>      <span class="dt">"M"</span><span class="fu">:</span> <span class="st">"male"</span><span class="fu">,</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>      <span class="dt">"F"</span><span class="fu">:</span> <span class="st">"female"</span>  <span class="fu">},</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="fu">},</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>participants.tsv</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a>participant_id    age     sex</span>
-<span id="cb6-2"><a href="#cb6-2"></a>sub-001           34      M</span>
-<span id="cb6-3"><a href="#cb6-3"></a>sub-002           12      F</span>
-<span id="cb6-4"><a href="#cb6-4"></a>sub-003           33      F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a>participant_id    age     sex</span>
+<span id="cb5-2"><a href="#cb5-2"></a>sub-001           34      M</span>
+<span id="cb5-3"><a href="#cb5-3"></a>sub-002           12      F</span>
+<span id="cb5-4"><a href="#cb5-4"></a>sub-003           33      F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="footer">
 <p><a href="https://bids-specification.readthedocs.io/en/stable/02-common-principles.html">BIDS common prinicples</a></p>
 </div>
 </section>
-<section>
-<section id="motion-specific-data" class="title-slide slide level1 sub-heading center">
-<h1>MOTION SPECIFIC DATA</h1>
+<section id="where-do-we-want-to-go" class="slide level2">
+<h2>Where do we want to go</h2>
+<p><br>
+</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="pics/mobi.jpg"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="pics/fries_normal.jpg"></p>
+</div>
+</div>
+<div class="footer">
+<p><a href="https://bids-specification.readthedocs.io/en/stable/">BIDS specifications</a></p>
+</div>
+</section>
+<section id="where-do-we-want-to-go-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Where do we want to go</h2>
+<p><strong>EXAMPLE</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb6" data-code-line-numbers="8"><pre class="sourceCode numberSource markdown number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode markdown hljs"><span id="cb6-1" class="hljs-ln-code"><a href="#cb6-1"></a>├─ README.md</span>
+<span id="cb6-2" class="hljs-ln-code"><a href="#cb6-2"></a>├─ dataset_description.json</span>
+<span id="cb6-3" class="hljs-ln-code"><a href="#cb6-3"></a>├─ participants.json</span>
+<span id="cb6-4" class="hljs-ln-code"><a href="#cb6-4"></a>├─ participants.tsv</span>
+<span id="cb6-5" class="hljs-ln-code"><a href="#cb6-5"></a>├─ sub-001</span>
+<span id="cb6-6" class="hljs-ln-code"><a href="#cb6-6"></a>| ├─ses-01</span>
+<span id="cb6-7" class="hljs-ln-code"><a href="#cb6-7"></a>| |  ├─eeg/</span>
+<span id="cb6-8" class="hljs-ln-code"><a href="#cb6-8"></a>| |  └─motion/</span>
+<span id="cb6-9" class="hljs-ln-code"><a href="#cb6-9"></a>| ├─ ses-02</span>
+<span id="cb6-10" class="hljs-ln-code"><a href="#cb6-10"></a>| └─ sub-001_scans.tsv</span>
+<span id="cb6-11" class="hljs-ln-code"><a href="#cb6-11"></a>├─ sub-002</span>
+<span id="cb6-12" class="hljs-ln-code"><a href="#cb6-12"></a>└─ sub-003</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="pics/fries_clean.jpg"></p>
+</div>
+</div>
+<div class="footer">
+<p><a href="https://bids-specification.readthedocs.io/en/stable/">BIDS specifications</a></p>
+</div>
+</section>
+<section id="motion-specific-data" class="slide level2 sub-heading">
+<h2>MOTION SPECIFIC DATA</h2>
 
 <img data-src="pics/dance.gif" class="r-stretch quarto-figure-center"></section>
-<section id="metadata" class="slide level2">
-<h2>Metadata</h2>
+<section id="raw-data" class="slide level2">
+<h2>Raw data</h2>
 <p>Example motion data files</p>
-<div class="sourceCode" id="cb7" data-code-line-numbers="5-8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a>├─README.md</span>
+<div class="sourceCode" id="cb7" data-code-line-numbers="6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a>├─README.md</span>
 <span id="cb7-2"><a href="#cb7-2"></a>└─sub-001/ses-01/</span>
 <span id="cb7-3"><a href="#cb7-3"></a>├─eeg/</span>
 <span id="cb7-4"><a href="#cb7-4"></a>...</span>
@@ -596,50 +581,13 @@
 <span id="cb7-9"><a href="#cb7-9"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_tracksys-&lt;label&gt;_channels.json</span>
 <span id="cb7-10"><a href="#cb7-10"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_events.tsv</span>
 <span id="cb7-11"><a href="#cb7-11"></a>    └─sub-001_task-<span class="kw">&lt;label&gt;</span>_events.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="footer">
-<p><a href="https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html">BIDS motion specification</a></p>
-</div>
-</section>
-<section id="motion.json" class="slide level2">
-<h2>*_motion.json</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>REQUIRED:</strong></p>
-<ul>
-<li>TaskName, SamplingFrequency</li>
-</ul>
-<p><strong>RECOMMENDED:</strong></p>
-<ul>
-<li>TaskDescription, MotionChannelCount, SoftwareFilters</li>
-</ul>
-<p><strong>OPTIONAL:</strong></p>
-<ul>
-<li>Manufacuturer, RecordingSoftware, …</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">{</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="er">TaskName</span><span class="fu">:</span> <span class="er">SpotRotation</span><span class="fu">,</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="er">TaskDescription</span><span class="fu">:</span> <span class="er">Running</span> <span class="er">around</span><span class="fu">,</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="er">MissingValues</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="er">MotionChannelCount</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="er">Manufacturer</span><span class="fu">:</span> <span class="er">HasoMed</span><span class="fu">,</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="er">TrackedPointsCount</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="er">SamplingFrequency</span><span class="fu">:</span> <span class="dv">120</span><span class="fu">,</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="er">ACCChannelCount</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="er">GYROChannelCount</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div class="footer">
-<p><a href="https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html">BIDS motion specification</a></p>
-</div>
 </section>
 <section id="motion.tsv" class="slide level2">
 <h2>*_motion.tsv</h2>
 <ul>
 <li>Currently <strong>only</strong> <code>.tsv</code> files</li>
 <li>Headers optional</li>
-<li>Raw values per column</li>
+<li>One channel per column</li>
 </ul>
 <table>
 <thead>
@@ -715,11 +663,63 @@
 <p><a href="https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html">BIDS motion specification</a></p>
 </div>
 </section>
+<section id="metadata" class="slide level2">
+<h2>Metadata</h2>
+<p>Example motion data files</p>
+<div class="sourceCode" id="cb8" data-code-line-numbers="7-8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a>├─README.md</span>
+<span id="cb8-2"><a href="#cb8-2"></a>└─sub-001/ses-01/</span>
+<span id="cb8-3"><a href="#cb8-3"></a>├─eeg/</span>
+<span id="cb8-4"><a href="#cb8-4"></a>...</span>
+<span id="cb8-5"><a href="#cb8-5"></a>└─motion/</span>
+<span id="cb8-6"><a href="#cb8-6"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_tracksys-&lt;label&gt;_motion.tsv</span>
+<span id="cb8-7"><a href="#cb8-7"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_tracksys-&lt;label&gt;_motion.json</span>
+<span id="cb8-8"><a href="#cb8-8"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_tracksys-&lt;label&gt;_channels.tsv</span>
+<span id="cb8-9"><a href="#cb8-9"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_tracksys-&lt;label&gt;_channels.json</span>
+<span id="cb8-10"><a href="#cb8-10"></a>    ├─sub-001_task-<span class="kw">&lt;label&gt;</span>_events.tsv</span>
+<span id="cb8-11"><a href="#cb8-11"></a>    └─sub-001_task-<span class="kw">&lt;label&gt;</span>_events.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="footer">
+<p><a href="https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html">BIDS motion specification</a></p>
+</div>
+</section>
+<section id="motion.json" class="slide level2">
+<h2>*_motion.json</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>REQUIRED:</strong></p>
+<ul>
+<li>TaskName, SamplingFrequency</li>
+</ul>
+<p><strong>RECOMMENDED:</strong></p>
+<ul>
+<li>TaskDescription, MotionChannelCount, SoftwareFilters</li>
+</ul>
+<p><strong>OPTIONAL:</strong></p>
+<ul>
+<li>Manufacturer, RecordingSoftware, …</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb9" data-code-line-numbers="2,8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">{</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="er">TaskName</span><span class="fu">:</span> <span class="er">SpotRotation</span><span class="fu">,</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="er">TaskDescription</span><span class="fu">:</span> <span class="er">Spinning</span> <span class="er">around</span><span class="fu">,</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="er">MissingValues</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="er">MotionChannelCount</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="er">Manufacturer</span><span class="fu">:</span> <span class="er">HasoMed</span><span class="fu">,</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="er">TrackedPointsCount</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="er">SamplingFrequency</span><span class="fu">:</span> <span class="dv">120</span><span class="fu">,</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="er">ACCChannelCount</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="er">GYROChannelCount</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="footer">
+<p><a href="https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html">BIDS motion specification</a></p>
+</div>
+</section>
 <section id="channels.tsv" class="slide level2">
 <h2>*_channels.tsv</h2>
 <p><strong>REQUIRED</strong></p>
 <ul>
-<li>Name, tracked_point, tracking_system, type, component, units</li>
+<li>name, component, type, tracked_point, units</li>
 </ul>
 <p><strong>RECOMMENDED</strong></p>
 <ul>
@@ -730,13 +730,13 @@
 <li>Description, sampling frequency</li>
 </ul>
 <p><strong>EXAMPLE:</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a>name    type    units   srate   tracked_point       component     placement       tracking_system</span>
-<span id="cb9-2"><a href="#cb9-2"></a>acc_x   ACCEL   m/s^2   222     lf                  x             left_foot       IMU1</span>
-<span id="cb9-3"><a href="#cb9-3"></a>acc_y   ACCEL   m/s^2   222     lf                  y             left_foot       IMU1</span>
-<span id="cb9-4"><a href="#cb9-4"></a>acc_z   ACCEL   m/s^2   222     lf                  z             left_foot       IMU1</span>
-<span id="cb9-5"><a href="#cb9-5"></a>gyro_x  GYRO    rad/s   222     lf                  x             left_foot       IMU1</span>
-<span id="cb9-6"><a href="#cb9-6"></a>gyro_y  GYRO    rad/s   222     lf                  y             left_foot       IMU1</span>
-<span id="cb9-7"><a href="#cb9-7"></a>gyro_z  GYRO    rad/s   222     lf                  z             left_foot       IMU1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a>name    type    units   srate   tracked_point       component     placement</span>
+<span id="cb10-2"><a href="#cb10-2"></a>acc_x   ACCEL   m/s^2   222     lf                  x             left_foot</span>
+<span id="cb10-3"><a href="#cb10-3"></a>acc_y   ACCEL   m/s^2   222     lf                  y             left_foot</span>
+<span id="cb10-4"><a href="#cb10-4"></a>acc_z   ACCEL   m/s^2   222     lf                  z             left_foot</span>
+<span id="cb10-5"><a href="#cb10-5"></a>gyro_x  GYRO    rad/s   222     lf                  x             left_foot</span>
+<span id="cb10-6"><a href="#cb10-6"></a>gyro_y  GYRO    rad/s   222     lf                  y             left_foot</span>
+<span id="cb10-7"><a href="#cb10-7"></a>gyro_z  GYRO    rad/s   222     lf                  z             left_foot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="footer">
 <p><a href="https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html">BIDS motion specification</a></p>
 </div>
@@ -747,7 +747,8 @@
 <img data-src="pics/bids_struct_example.png" class="r-stretch quarto-figure-center"><div class="footer">
 <p><a href="https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html">BIDS motion specification</a></p>
 </div>
-</section></section>
+</section>
+<section>
 <section id="thank-you-for-listening-carefully" class="title-slide slide level1 sub-heading center">
 <h1>Thank you for listening carefully</h1>
 <div class="quarto-figure quarto-figure-center">
@@ -755,12 +756,33 @@
 <p><img data-src="pics/thanks.gif" style="height:20.0%"></p>
 </figure>
 </div>
-<p><span style="text-align: center;">Thanks to all of our (BIDS)-companions and all participants who ever provided data which is now in BIDS</span></p>
-<p><img src="logo/BIDS_logo.png" class="slide-logo"></p>
-<div class="footer footer-default">
+<p><span class="center-text">Thanks to Sein Jeung for pushing this to completion over the past three years</span></p>
+<p><span class="center-text">Thanks to all of the BIDS Maintainers and Devs who help to implement this</span></p>
+<p><span class="center-text">Thanks to my working group, who have given me the freedom to work in this</span></p>
+<p><span class="center-text">Thanks to all of our (BIDS)-companions and all participants who ever provided data which is now in BIDS</span></p>
+</section>
+<section id="definitions" class="slide level2">
+<h2>Definitions</h2>
+<ul>
+<li><strong>Dataset</strong> - A dataset consists of data acquired from one or more subjects, possibly from multiple sessions.</li>
+<li><strong>Subject</strong> - a single participant in a study. A subject can be scanned multiple times, in which case each scan is a separate session.</li>
+<li><strong>Session</strong> - a logical grouping of neuroimaging and behavioral data consistent across subjects. Session can (but doesn’t have to) be synonymous to a visit in a longitudinal study.</li>
+<li><strong>Task</strong> - a set of structured activities performed by the participant. Tasks are usually accompanied by stimuli and responses, and can greatly vary in complexity.</li>
+<li><strong>Data type</strong> - a functional group of different types of data. Some BIDS defined data types are:
+<ul>
+<li>anat (structural imaging such as T1, T2 and so on)</li>
+<li>eeg (electroencephalography)</li>
+<li>motion (time series of object positions, orientations, or their time derivatives)</li>
+</ul></li>
+</ul>
+<div class="footer">
+<p><a href="https://bids-specification.readthedocs.io/en/stable/02-common-principles.html">BIDS common prinicples</a></p>
+</div>
+
+<img src="logo/BIDS_logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
