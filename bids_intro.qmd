@@ -12,8 +12,6 @@ author:
 - name: "Robert Oostenveld"
 - name: "BIDS Maintainers"
 - name: "Julius Welzel"
-author-meta: 
-
 
 title-slide-attributes:
   data-background-image: pics/128_cap.jpg
