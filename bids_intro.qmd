@@ -1,5 +1,18 @@
 ---
 title: "MOTION-BIDS"
+author:
+- name: "Sein Jeung"
+- name: "Helena Cockx"
+- name: "Stefan Appelhoff"
+- name: "Timotheus Berg"
+- name: "Klaus Gramann"
+- name: "Sören Grothkopp"
+- name: "Elke Warmerdam"
+- name: "Clint Hansen"
+- name: "Robert Oostenveld"
+- name: "BIDS Maintainers"
+- name: "Julius Welzel"
+
 title-slide-attributes:
   data-background-image: pics/128_cap.jpg
   data-background-size: cover
@@ -55,6 +68,24 @@ format:
 -   Some metadata is better than no metadata
 :::
 
+## BIDS Brain Imaging Data Structure: What in it for the PIs{auto-animate="true"}
+
+::: {.fragment .fade-up}
+**BIDS comes with ...**
+
+-   an easy option for reanalysis of data after members have left the lab
+-   smoother data sharing with collaborators
+-   less work to organise datasets with all tools avaliable ([EEGLab](https://eeglab.org/tutorials/04_Import/BIDS.html), [FieldTrip](https://www.fieldtriptoolbox.org/getting_started/bids/), [MNE](https://mne.tools/mne-bids/stable/index.html))
+:::
+
+::: {.fragment .fade-up}
+**Help you team get there by ...**
+
+-   introducing 'BIDS Bucks' for promoting BIDS adoption (coffee, chocolate, ...)
+-   assign a team member to be the Capt'n BIDS
+-   organise a BIDS workshop for your team 
+-   appreciate the effort of members to adopt BIDS
+:::
 
 ## Common principles{auto-animate=true}
 
@@ -233,8 +264,8 @@ Example motion data files
 ## *_motion.tsv
 
 -   Currently **only** `.tsv` files
--   Headers optional 
 -   One channel per column
+-   Match by order to `channels.tsv` file
 
 | acc_x | acc_y | acc_z | gyro_x | gyro_y | gyro_z|
 |--------|--------|--------|--------|--------|--------|

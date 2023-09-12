@@ -1,3 +1,7 @@
+.quarto-title-author-name {
+    font-size: 18px;
+}
+
 .bordered-red {
   border: 1px solid #DA727E; /* Customize the border style as needed */
   padding: 5px; /* Add padding for spacing */
@@ -33,5 +37,5 @@
 }
 
 .center-text {
-    text-align: center;
+    text-align: center !important;
 }
