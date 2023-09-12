@@ -12,6 +12,8 @@ author:
 - name: "Robert Oostenveld"
 - name: "BIDS Maintainers"
 - name: "Julius Welzel"
+author-meta: 
+
 
 title-slide-attributes:
   data-background-image: pics/128_cap.jpg
@@ -68,7 +70,7 @@ format:
 -   Some metadata is better than no metadata
 :::
 
-## BIDS Brain Imaging Data Structure: What in it for the PIs{auto-animate="true"}
+## BIDS Brain Imaging Data Structure: What is in it for the PIs{auto-animate="true"}
 
 ::: {.fragment .fade-up}
 **BIDS comes with ...**
