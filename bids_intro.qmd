@@ -16,12 +16,12 @@ author:
 title-slide-attributes:
   data-background-image: pics/128_cap.jpg
   data-background-size: cover
-  data-background-opacity: "0.5"
+  data-background-opacity: "0.35"
 subtitle: "Extending the Brain Imaging Data Structure specification to organize motion data for reproducible research"
 format:
-  revealjs: 
+  revealjs:
     slide-number: true
-    chalkboard: 
+    chalkboard:
       buttons: false
     preview-links: auto
     logo: logo/BIDS_logo.png
@@ -32,21 +32,21 @@ format:
 
 ## Motivation
 
--   Tens of thousands subjects are scanned for research purposes each year
+-   Thousands subjects are recorded for research purposes each year
 -   Lack of consensus leads to misunderstanding and time wasted on **rearranging data** or **rewriting scripts** that expect particular file formats and organization
 
 ::: {.fragment .fade-up}
 >   Create a **standard** for organizing motion data building on BIDS
 :::
 ::: {.fragment .fade-up}
->   Easy to follow **guidelines** for researchers to share their data (including conversion tools in FieldTrip, MNE, EEGLAB)
+>   Easy to follow **guidelines** for researchers to share motion data (including conversion tools in FieldTrip, MNE, EEGLAB)
 :::
 ::: {.fragment .fade-up}
->   Share data to validate pipelines (e.g. OpenNeuro, NEMAR)
+>   Reuse and validate pipelines on existing data (e.g. OpenNeuro)
 :::
 
 ::: footer
-[Gorgolewski ea., *Scientific Data*, 2016](https://www.nature.com/articles/sdata201644), [Delmore, *Scientific Reports*, 2023](https://www.nature.com/articles/s41598-023-27528-0) 
+[Gorgolewski ea., *Scientific Data*, 2016](https://www.nature.com/articles/sdata201644), [Delmore, *Scientific Reports*, 2023](https://www.nature.com/articles/s41598-023-27528-0)
 :::
 
 
@@ -63,19 +63,19 @@ format:
 ::: {.fragment .fade-up}
 **METADATA**
 
--   Prevents metadata getting lost while doing your research
+-   Prevents metadata getting lost while doing research
 -   Stored in json files, readable by both humans and machines
 -   Some metadata is better than no metadata
 :::
 
-## BIDS Brain Imaging Data Structure: What is in it for the PIs{auto-animate="true"}
+## BIDS Brain Imaging Data Structure: What's in it for the PIs{auto-animate="true"}
 
 ::: {.fragment .fade-up}
 **BIDS comes with ...**
 
 -   an easy option for reanalysis of data after members have left the lab
 -   smoother data sharing with collaborators
--   less work to organise datasets with all tools avaliable ([EEGLab](https://eeglab.org/tutorials/04_Import/BIDS.html), [FieldTrip](https://www.fieldtriptoolbox.org/getting_started/bids/), [MNE](https://mne.tools/mne-bids/stable/index.html))
+-   less work to organise datasets to use data with popular toolboxes ([EEGLab](https://eeglab.org/tutorials/04_Import/BIDS.html), [FieldTrip](https://www.fieldtriptoolbox.org/getting_started/bids/), [MNE](https://mne.tools/mne-bids/stable/index.html))
 :::
 
 ::: {.fragment .fade-up}
@@ -83,11 +83,11 @@ format:
 
 -   introducing 'BIDS Bucks' for promoting BIDS adoption (coffee, chocolate, ...)
 -   assign a team member to be the Capt'n BIDS
--   organise a BIDS workshop for your team 
--   appreciate the effort of members to adopt BIDS
+-   organise a BIDS workshop for your team
+-   appreciate effort of members to adopt BIDS
 :::
 
-## Common principles{auto-animate=true}
+## Common principles
 
 ::: columns
 
@@ -96,7 +96,7 @@ Level of requirement **for** files and **within** files:
 
 
 -   [**REQUIRED**]{.custom-red}
--   [**RECOMMENDED**]{.custom-blue} 
+-   [**RECOMMENDED**]{.custom-blue}
 -   **OPTIONAL**
 :::
 
@@ -116,39 +116,6 @@ Level of requirement **for** files and **within** files:
 [BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
 :::
 
-## Example: dataset description
-
-**Example dir structure**
-```{.markdown code-line-numbers="2"}
-├─ README.tsv
-├─ dataset_description.json
-├─ participants.json
-├─ participants.tsv
-├─ sub-001
-| ├─ ses-01
-| └─ ses-02
-├─ sub-002
-└─ sub-003
-```
-**dataset_description.json**
-```json
-{
-"Name": "The mother of all experiments",  
-"BIDSVersion": "1.4.0",
-"DatasetType": "raw",  
-"License": "CC0",
-"Authors": [ "Paul Broca", "Carl Wernicke" ],  
-"Funding": [ "National Institute of Neuroscience Grant F37823MFH1" ], 
-"EthicsApprovals": ["Human Research Protections Office (Protocol  AR0928" ],
-"DatasetDOI": "10.0.2.3/dfjj.10"
-}
-
-```
-
-
-::: footer
-[BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
-:::
 
 ## Example: participant files{.smaller}
 
@@ -166,11 +133,11 @@ Level of requirement **for** files and **within** files:
 ```json
 {
 "age": {
-      "Description": "age of the participant",  
-      "Units": "years"   
+      "Description": "age of the participant",
+      "Units": "years"
       },
 "sex": {
-    "Description": "sex as reported by the participant",  
+    "Description": "sex as reported by the participant",
     "Levels": {
       "M": "male",
       "F": "female"  },
@@ -191,7 +158,7 @@ sub-002           12	  F
 [BIDS common prinicples](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html)
 :::
 
-## Where do we want to go 
+## Where do we want to go
 
 \
 
@@ -202,7 +169,7 @@ sub-002           12	  F
 
 ::: {.column width="50%"}
 ![](pics/fries_normal.jpg)
-::: 
+:::
 :::
 
 ::: footer
@@ -233,7 +200,7 @@ sub-002           12	  F
 
 ::: {.column width="50%"}
 ![](pics/fries_clean.jpg)
-::: 
+:::
 :::
 
 ::: footer
@@ -260,7 +227,7 @@ Example motion data files
     ├─sub-001_task-<label>_events.tsv
     └─sub-001_task-<label>_events.json
 ```
-  
+
 ## *_motion.tsv
 
 -   Currently **only** `.tsv` files
@@ -282,7 +249,7 @@ Example motion data files
 [BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
 :::
 
-## Metadata
+## Metadata{.bigger}
 Example motion data files
 ```{.markdown code-line-numbers="7-8"}
 ├─README.md
@@ -301,7 +268,7 @@ Example motion data files
 [BIDS motion specification](https://bids-specification.readthedocs.io/en/latest/modality-specific-files/motion.html)
 :::
 
-## *_motion.json 
+## *_motion.json
 ::: columns
 ::: {.column width="50%"}
 
@@ -341,7 +308,7 @@ GYROChannelCount: 3,
 :::
 
 
-## *_channels.tsv 
+## *_channels.tsv
 
 **REQUIRED**
 
@@ -356,7 +323,7 @@ GYROChannelCount: 3,
 - Description, sampling frequency
 
 **EXAMPLE:**
-```markdown	
+```markdown
 name    type    units   srate   tracked_point       component     placement
 acc_x   ACCEL   m/s^2   222	    lf		    	    x             left_foot
 acc_y   ACCEL   m/s^2   222	    lf		    	    y             left_foot
@@ -396,9 +363,9 @@ gyro_z  GYRO    rad/s   222	    lf		    	    z             left_foot
 
 -   **Dataset** - A dataset consists of data acquired from one or more subjects, possibly from multiple sessions.
 -   **Subject** - a single participant in a study. A subject can be scanned multiple times, in which case each scan is a separate session.
--   **Session** - a logical grouping of neuroimaging and behavioral data consistent across subjects. Session can (but doesn't have to) be synonymous to a visit in a longitudinal study. 
--   **Task** - a set of structured activities performed by the participant. Tasks are usually accompanied by stimuli and responses, and can greatly vary in complexity. 
--   **Data type** - a functional group of different types of data. Some BIDS defined data types are: 
+-   **Session** - a logical grouping of neuroimaging and behavioral data consistent across subjects. Session can (but doesn't have to) be synonymous to a visit in a longitudinal study.
+-   **Task** - a set of structured activities performed by the participant. Tasks are usually accompanied by stimuli and responses, and can greatly vary in complexity.
+-   **Data type** - a functional group of different types of data. Some BIDS defined data types are:
     -   anat (structural imaging such as T1, T2 and so on)
     -   eeg (electroencephalography)
     -   motion (time series of object positions, orientations, or their time derivatives)
